@@ -32,6 +32,7 @@
             this.NON_ALIMENTARI = new System.Windows.Forms.Button();
             this.ALIMENTARI_FRESCHI = new System.Windows.Forms.Button();
             this.SCONTRINO = new System.Windows.Forms.Button();
+            this.Scontrinos = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // ALIMENTARI
@@ -66,7 +67,7 @@
             // 
             // SCONTRINO
             // 
-            this.SCONTRINO.Location = new System.Drawing.Point(323, 191);
+            this.SCONTRINO.Location = new System.Drawing.Point(89, 186);
             this.SCONTRINO.Name = "SCONTRINO";
             this.SCONTRINO.Size = new System.Drawing.Size(125, 43);
             this.SCONTRINO.TabIndex = 4;
@@ -74,11 +75,21 @@
             this.SCONTRINO.UseVisualStyleBackColor = true;
             this.SCONTRINO.Click += new System.EventHandler(this.SCONTRINO_Click);
             // 
+            // Scontrinos
+            // 
+            this.Scontrinos.FormattingEnabled = true;
+            this.Scontrinos.Location = new System.Drawing.Point(251, 143);
+            this.Scontrinos.Name = "Scontrinos";
+            this.Scontrinos.Size = new System.Drawing.Size(503, 264);
+            this.Scontrinos.TabIndex = 5;
+            this.Scontrinos.SelectedIndexChanged += new System.EventHandler(this.Scontrinos_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Scontrinos);
             this.Controls.Add(this.SCONTRINO);
             this.Controls.Add(this.ALIMENTARI_FRESCHI);
             this.Controls.Add(this.NON_ALIMENTARI);
@@ -95,6 +106,7 @@
         private System.Windows.Forms.Button NON_ALIMENTARI;
         private System.Windows.Forms.Button ALIMENTARI_FRESCHI;
         private System.Windows.Forms.Button SCONTRINO;
+        private System.Windows.Forms.ListBox Scontrinos;
     }
 }
 
