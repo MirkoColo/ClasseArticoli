@@ -309,5 +309,13 @@ namespace ClasseArticoli
         {
 
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Form3 form = new Form3();
+            form.ShowDialog();
+            this.Close();
+        }
     }
 }

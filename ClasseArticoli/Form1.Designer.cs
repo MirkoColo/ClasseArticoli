@@ -34,6 +34,7 @@
             this.ALIMENTARI_FRESCHI = new System.Windows.Forms.Button();
             this.SCONTRINO = new System.Windows.Forms.Button();
             this.Scontrinos = new System.Windows.Forms.ListBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // ALIMENTARI
@@ -85,6 +86,19 @@
             this.Scontrinos.TabIndex = 5;
             this.Scontrinos.SelectedIndexChanged += new System.EventHandler(this.Scontrinos_SelectedIndexChanged);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Old English Text MT", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.Red;
+            this.linkLabel1.Location = new System.Drawing.Point(617, 384);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(171, 57);
+            this.linkLabel1.TabIndex = 6;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "ESCI";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -92,6 +106,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.Scontrinos);
             this.Controls.Add(this.SCONTRINO);
             this.Controls.Add(this.ALIMENTARI_FRESCHI);
@@ -101,6 +116,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -110,6 +126,7 @@
         private System.Windows.Forms.Button ALIMENTARI_FRESCHI;
         private System.Windows.Forms.Button SCONTRINO;
         private System.Windows.Forms.ListBox Scontrinos;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 
