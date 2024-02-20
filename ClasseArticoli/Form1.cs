@@ -285,23 +285,33 @@ namespace ClasseArticoli
                 }
             }
 
-
+            float totale = 0;
+            float totaleScontato = 0;
 
             Scontrinos.Items.Add("ARTICOLI ALIMENTARI:");
             foreach (Alimentari alimentari in alimentaris)
             {
                 Scontrinos.Items.Add(alimentari.Stampa());
+                totale += alimentari.Prezzo;
+                totaleScontato += alimentari.Sconta();
             }
             Scontrinos.Items.Add("ARTICOLI NON ALIMENTARI:");
             foreach (ArticoloNonAlimentare alimentari in nonAlimentaris)
             {
                 Scontrinos.Items.Add(alimentari.Stampa());
+                totale += alimentari.Prezzo;
+                totaleScontato += alimentari.Sconta();
             }
             Scontrinos.Items.Add("ARTICOLI ALIMENTARI FRESCHI:");
             foreach (AlimentariFreschi alimentari in alimentarisFreschi)
             {
                 Scontrinos.Items.Add(alimentari.Stampa());
+                totale += alimentari.Prezzo;
+                totaleScontato += alimentari.Sconta();
             }
+            Scontrinos.Items.Add(" ");
+            Scontrinos.Items.Add("TOTALE: " + totale);
+            Scontrinos.Items.Add("TOTALE SCONTATO: " + totaleScontato);
         }
 
 

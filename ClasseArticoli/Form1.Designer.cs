@@ -112,8 +112,9 @@
             this.Controls.Add(this.ALIMENTARI_FRESCHI);
             this.Controls.Add(this.NON_ALIMENTARI);
             this.Controls.Add(this.ALIMENTARI);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "REPARTO";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
