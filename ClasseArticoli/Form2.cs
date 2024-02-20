@@ -29,5 +29,10 @@ namespace ClasseArticoli
             form.ShowDialog();
             this.Close();
         }
+
+        private void PICKER_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -54,8 +54,11 @@ namespace ClasseArticoli
                 {
                     molt += 2;
                 }
-
                 float pres = prezzo - ((prezzo / 100) * molt);
+                if (int.Parse(data_scadenza) == DateTime.Today.Year)
+                {
+                    pres = prezzo - ((prezzo / 100) * 20);
+                }
                 if (carta == true)
                 {
                     pres = pres - ((pres / 100) * 5);
@@ -136,8 +139,11 @@ namespace ClasseArticoli
             public override float Sconta()
             {
                 // 20% di sconto
-
-                float pres = prezzo - ((prezzo / 100) * 20);
+                float pres = prezzo;
+                if (int.Parse(data_scadenza) == DateTime.Today.Year)
+                {
+                     pres = prezzo - ((prezzo / 100) * 20);
+                }
                 if (carta == true)
                 {
                     pres = pres - ((pres / 100) * 5);
