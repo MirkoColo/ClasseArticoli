@@ -17,19 +17,22 @@ namespace ClasseArticoli
         public Form1()
         {
             InitializeComponent();
+
         }
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            Scontrinos.Visible = false;
+
         }
 
-         List<Alimentari> alimentaris = new List<Alimentari>();
-         List<AlimentariFreschi> alimentarisFreschi = new List<AlimentariFreschi>();
-         List<ArticoloNonAlimentare> nonAlimentaris = new List<ArticoloNonAlimentare>();
+        List<Alimentari> alimentaris = new List<Alimentari>();
+        List<AlimentariFreschi> alimentarisFreschi = new List<AlimentariFreschi>();
+        List<ArticoloNonAlimentare> nonAlimentaris = new List<ArticoloNonAlimentare>();
         int codice = 0;
         class AlimentariFreschi : Alimentari
         {
-            
+
             private int scadenza;
 
             public int Scadenza
@@ -43,19 +46,19 @@ namespace ClasseArticoli
                 scadenza = e;
             }
 
-            public override int Sconta()
+            public override float Sconta()
             {
                 // 2% di sconto considerato in proporzione inversa
                 int molt = 0;
-                for(int i = 0; i < scadenza; i++)
+                for (int i = 0; i < scadenza; i++)
                 {
                     molt += 2;
                 }
 
-                int pres = prezzo - ((prezzo / 100) * molt);
-                if(carta == true)
+                float pres = prezzo - ((prezzo / 100) * molt);
+                if (carta == true)
                 {
-                     pres = prezzo - ((prezzo / 100) * 5);
+                    pres = pres - ((pres / 100) * 5);
                 }
                 return pres;
 
@@ -70,7 +73,7 @@ namespace ClasseArticoli
 
         class ArticoloNonAlimentare : Articolo
         {
-            
+
             private string materiale;
             private bool riciclabile;
 
@@ -91,7 +94,7 @@ namespace ClasseArticoli
                 materiale = e;
                 riciclabile = d;
             }
-            public override int Sconta()
+            public override float Sconta()
             {
                 // 20% di sconto
                 int ret = 1;
@@ -99,10 +102,10 @@ namespace ClasseArticoli
                 {
                     ret = 10;
                 }
-                int pres =  prezzo - ((prezzo / 100) * ret);
+                float pres = prezzo - ((prezzo / 100) * ret);
                 if (carta == true)
                 {
-                    pres = prezzo - ((prezzo / 100) * 5);
+                    pres = pres - ((pres / 100) * 5);
                 }
                 return pres;
             }
@@ -116,7 +119,7 @@ namespace ClasseArticoli
         }
         class Alimentari : Articolo
         {
-            
+
             protected string data_scadenza;
 
             public string Data_Scadenza
@@ -130,13 +133,14 @@ namespace ClasseArticoli
                 data_scadenza = d;
             }
 
-            public override int Sconta()
+            public override float Sconta()
             {
                 // 20% di sconto
-                int pres = prezzo - ((prezzo / 100) * 20);
+
+                float pres = prezzo - ((prezzo / 100) * 20);
                 if (carta == true)
                 {
-                    pres = prezzo - ((prezzo / 100) * 5);
+                    pres = pres - ((pres / 100) * 5);
                 }
                 return pres;
             }
@@ -150,7 +154,7 @@ namespace ClasseArticoli
         class Articolo
         {
             protected string codice, nome;
-            protected int prezzo;
+            protected float prezzo;
             protected bool carta = false;
 
             public string Codice
@@ -163,7 +167,7 @@ namespace ClasseArticoli
                 get { return nome; }
                 set { nome = value; }
             }
-            public int Prezzo
+            public float Prezzo
             {
                 get { return prezzo; }
                 set { prezzo = value; }
@@ -175,7 +179,7 @@ namespace ClasseArticoli
             }
 
             public Articolo()
-            { 
+            {
             }
             public Articolo(string a, string b, int c)
             {
@@ -184,18 +188,18 @@ namespace ClasseArticoli
                 prezzo = c;
             }
 
-            public virtual int Sconta()
+            public virtual float Sconta()
             {
                 // 5% di sconto
                 return prezzo - ((prezzo / 100) * 5);
             }
 
-            
+
         }
 
         private void AGGIUNGI_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void ALIMENTARI_Click(object sender, EventArgs e)
@@ -213,7 +217,7 @@ namespace ClasseArticoli
             alimentaris.Add(alimentare);
             codice++;
         }
-        
+
         private void NON_ALIMENTARI_Click(object sender, EventArgs e)
         {
             string message, title, defaultValue;
@@ -232,7 +236,7 @@ namespace ClasseArticoli
                 a = true;
             }
 
-            ArticoloNonAlimentare alimentare = new ArticoloNonAlimentare(codice.ToString(), nome, int.Parse(prezzo), a , materiale );
+            ArticoloNonAlimentare alimentare = new ArticoloNonAlimentare(codice.ToString(), nome, int.Parse(prezzo), a, materiale);
             nonAlimentaris.Add(alimentare);
             codice++;
         }
@@ -257,16 +261,28 @@ namespace ClasseArticoli
 
         public void AggiungiACarrello(object art)
         {
-            
+
         }
 
         private void SCONTRINO_Click(object sender, EventArgs e)
         {
+            Scontrinos.Visible = true;
             DialogResult dialogResult = MessageBox.Show("Hai la carta fedeltà?", "CARTA", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Articolo articolo = new Articolo();
-                articolo.Carta = true;
+
+                foreach (Alimentari alimentari in alimentaris)
+                {
+                    alimentari.Carta = true;
+                }
+                foreach (ArticoloNonAlimentare alimentari in nonAlimentaris)
+                {
+                    alimentari.Carta = true;
+                }
+                foreach (AlimentariFreschi alimentari in alimentarisFreschi)
+                {
+                    alimentari.Carta = true;
+                }
             }
 
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ALIMENTARI = new System.Windows.Forms.Button();
             this.NON_ALIMENTARI = new System.Windows.Forms.Button();
             this.ALIMENTARI_FRESCHI = new System.Windows.Forms.Button();
@@ -47,7 +48,7 @@
             // 
             // NON_ALIMENTARI
             // 
-            this.NON_ALIMENTARI.Location = new System.Drawing.Point(323, 74);
+            this.NON_ALIMENTARI.Location = new System.Drawing.Point(251, 74);
             this.NON_ALIMENTARI.Name = "NON_ALIMENTARI";
             this.NON_ALIMENTARI.Size = new System.Drawing.Size(125, 43);
             this.NON_ALIMENTARI.TabIndex = 2;
@@ -57,7 +58,7 @@
             // 
             // ALIMENTARI_FRESCHI
             // 
-            this.ALIMENTARI_FRESCHI.Location = new System.Drawing.Point(563, 74);
+            this.ALIMENTARI_FRESCHI.Location = new System.Drawing.Point(396, 74);
             this.ALIMENTARI_FRESCHI.Name = "ALIMENTARI_FRESCHI";
             this.ALIMENTARI_FRESCHI.Size = new System.Drawing.Size(125, 43);
             this.ALIMENTARI_FRESCHI.TabIndex = 3;
@@ -67,7 +68,7 @@
             // 
             // SCONTRINO
             // 
-            this.SCONTRINO.Location = new System.Drawing.Point(89, 186);
+            this.SCONTRINO.Location = new System.Drawing.Point(547, 74);
             this.SCONTRINO.Name = "SCONTRINO";
             this.SCONTRINO.Size = new System.Drawing.Size(125, 43);
             this.SCONTRINO.TabIndex = 4;
@@ -78,9 +79,9 @@
             // Scontrinos
             // 
             this.Scontrinos.FormattingEnabled = true;
-            this.Scontrinos.Location = new System.Drawing.Point(251, 143);
+            this.Scontrinos.Location = new System.Drawing.Point(34, 137);
             this.Scontrinos.Name = "Scontrinos";
-            this.Scontrinos.Size = new System.Drawing.Size(503, 264);
+            this.Scontrinos.Size = new System.Drawing.Size(698, 264);
             this.Scontrinos.TabIndex = 5;
             this.Scontrinos.SelectedIndexChanged += new System.EventHandler(this.Scontrinos_SelectedIndexChanged);
             // 
@@ -88,6 +89,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Scontrinos);
             this.Controls.Add(this.SCONTRINO);
